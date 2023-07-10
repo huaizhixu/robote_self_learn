@@ -1,0 +1,99 @@
+<mujoco model="yuquan">
+    <compiler angle="radian" meshdir="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/" />
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="base_link" file="base_link.STL" />
+        <mesh name="left_left_small_leg" file="left_left_small_leg.STL" />
+        <mesh name="left_left_big_leg" file="left_left_big_leg.STL" />
+        <mesh name="left_wheel" file="left_wheel.STL" />
+        <mesh name="left_right_small_leg" file="left_right_small_leg.STL" />
+        <mesh name="left_right_big_leg" file="left_right_big_leg.STL" />
+        <mesh name="right_left_small_leg" file="right_left_small_leg.STL" />
+        <mesh name="right_left_big_leg" file="right_left_big_leg.STL" />
+        <mesh name="right_wheel" file="right_wheel.STL" />
+        <mesh name="right_right_small_leg" file="right_right_small_leg.STL" />
+        <mesh name="right_right_big_leg" file="right_right_big_leg.STL" />
+        <mesh name="left_ball_wheel" file="left_ball_wheel.STL" />
+        <mesh name="right_ball_wheel" file="right_ball_wheel.STL" />
+    </asset>
+    <worldbody>
+        <body name="base_link" pos="0 0 0">
+            <inertial pos="-4.6363e-07 -0.0013201 -0.021013" quat="0.707266 0.706947 1.11098e-07 -8.10418e-06" mass="2.793" diaginertia="0.039104 0.026788 0.015393" />
+            <joint name="floating_base" type="free" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.77647 0.75686 0.73725 1" mesh="base_link" />
+            <geom type="mesh" rgba="0.77647 0.75686 0.73725 1" mesh="base_link" />
+            <body name="left_left_small_leg" pos="-0.1025 0.05 0" quat="0.20126 -0.67786 -0.201265 0.67786">
+                <inertial pos="-3.1799e-08 -0.024068 0.00079523" quat="0.515308 0.484208 -0.484208 0.515308" mass="0.10778" diaginertia="0.000161092 0.00013959 2.60209e-05" />
+                <joint name="left_left_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-1.57 1.57" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.77647 0.75686 0.73725 1" mesh="left_left_small_leg" />
+                <geom type="mesh" rgba="0.77647 0.75686 0.73725 1" mesh="left_left_small_leg" />
+                <body name="left_left_big_leg" pos="0 -0.09 0.0396" quat="-3.65046e-06 0.993808 -0.11111 4.0813e-07">
+                    <inertial pos="1.41705e-12 -0.138445 0.00620447" quat="0.479771 0.519442 -0.519442 0.479771" mass="0.254951" diaginertia="0.000982657 0.000855216 0.000139434" />
+                    <joint name="joint0" pos="0 0 0" axis="0 0 1" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="left_left_big_leg" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="left_left_big_leg" />
+                    <body name="left_wheel" pos="0 -0.18 0.001" quat="0.693519 0.13795 0.693521 -0.13795">
+                        <inertial pos="-0.020163 7.3609e-05 3.049e-05" quat="0.980929 0.194363 0.000258227 -0.0012933" mass="0.23078" diaginertia="0.000248421 0.000146207 0.000145602" />
+                        <joint name="left_wheel_joint" pos="0 0 0" axis="1 0 0" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="left_wheel" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="left_wheel" />
+                    </body>
+                </body>
+            </body>
+            <body name="left_right_small_leg" pos="-0.1025 -0.05 0" quat="0.677859 -0.201262 -0.67786 0.201262">
+                <inertial pos="-3.42171e-08 -0.0240684 0.000795233" quat="0.515308 0.484208 -0.484208 0.515308" mass="0.10778" diaginertia="0.000161092 0.000139586 2.60213e-05" />
+                <joint name="left_right_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="left_right_small_leg" />
+                <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="left_right_small_leg" />
+                <body name="left_right_big_leg" pos="0 -0.09 0.0116" quat="0.111116 0 0 -0.993807">
+                    <inertial pos="0 -0.0887597 0.024852" quat="0.559067 0.432948 -0.432948 0.559067" mass="0.11097" diaginertia="0.000399813 0.000395694 1.62694e-05" />
+                    <joint name="joint1" pos="0 0 0" axis="1 0 0" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="left_right_big_leg" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="left_right_big_leg" />
+                </body>
+            </body>
+            <body name="right_left_small_leg" pos="0.1025 -0.05 0" quat="0.677859 -0.201262 0.67786 -0.201262">
+                <inertial pos="-3.1799e-08 -0.024068 0.00079523" quat="0.515308 0.484208 -0.484208 0.515308" mass="0.10778" diaginertia="0.000161092 0.00013959 2.60209e-05" />
+                <joint name="right_left_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.77647 0.75686 0.73725 1" mesh="right_left_small_leg" />
+                <geom type="mesh" rgba="0.77647 0.75686 0.73725 1" mesh="right_left_small_leg" />
+                <body name="right_left_big_leg" pos="0 -0.09 0.0396" quat="-3.65046e-06 0.993808 -0.11111 4.0813e-07">
+                    <inertial pos="1.41699e-12 -0.138445 0.00620447" quat="0.479771 0.519442 -0.519442 0.479771" mass="0.254951" diaginertia="0.000982657 0.000855216 0.000139434" />
+                    <joint name="joint2" pos="0 0 0" axis="1 0 0" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="right_left_big_leg" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="right_left_big_leg" />
+                    <body name="right_wheel" pos="0 -0.18 0.2832" quat="0.384279 0.593572 -0.384281 0.593574">
+                        <inertial pos="-0.262037 3.26145e-05 -7.26926e-05" quat="0.543438 0.839448 0.00110707 -0.000716687" mass="0.230776" diaginertia="0.000248424 0.000146208 0.000145604" />
+                        <joint name="right_wheel_joint" pos="0 0 0" axis="1 0 0" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="1 1 1 1" mesh="right_wheel" />
+                        <geom type="mesh" rgba="1 1 1 1" mesh="right_wheel" />
+                    </body>
+                </body>
+            </body>
+            <body name="right_right_small_leg" pos="0.1025 0.05 0" quat="0.20126 -0.67786 0.201265 -0.67786">
+                <inertial pos="-3.42171e-08 -0.0240684 0.000795233" quat="0.515308 0.484208 -0.484208 0.515308" mass="0.10778" diaginertia="0.000161092 0.000139586 2.60213e-05" />
+                <joint name="right_right_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-1.57 1.57" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="right_right_small_leg" />
+                <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="right_right_small_leg" />
+                <body name="right_right_big_leg" pos="0 -0.09 0.0116" quat="0.111116 0 0 -0.993807">
+                    <inertial pos="0 -0.0887597 0.024852" quat="0.559067 0.432948 -0.432948 0.559067" mass="0.11097" diaginertia="0.000399813 0.000395694 1.62694e-05" />
+                    <joint name="joint3" pos="0 0 0" axis="1 0 0" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="right_right_big_leg" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="right_right_big_leg" />
+                </body>
+            </body>
+            <body name="left_ball_wheel" pos="0.0065 0 0" quat="0.707105 0.707108 0 0">
+                <inertial pos="-0.0719629 0 0" mass="0.806825" diaginertia="0.0251135 0.0125762 0.0125762" />
+                <joint name="left_ball_wheel_joint" pos="0 0 0" axis="1 0 0" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.298039 0.298039 0.298039 1" mesh="left_ball_wheel" />
+                <geom type="mesh" rgba="0.298039 0.298039 0.298039 1" mesh="left_ball_wheel" />
+            </body>
+            <body name="right_ball_wheel" pos="-0.0065 0 0" quat="0.707105 0.707108 0 0">
+                <inertial pos="-0.0719629 0 0" mass="0.806825" diaginertia="0.0251135 0.0125762 0.0125762" />
+                <joint name="right_ball_wheel_joint" pos="0 0 0" axis="1 0 0" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.298039 0.298039 0.298039 1" mesh="right_ball_wheel" />
+                <geom type="mesh" rgba="0.298039 0.298039 0.298039 1" mesh="right_ball_wheel" />
+            </body>
+        </body>
+    </worldbody>
+</mujoco>

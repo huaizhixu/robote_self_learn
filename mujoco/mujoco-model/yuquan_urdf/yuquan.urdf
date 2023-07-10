@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="yuquan">
+
+
+  <mujoco>
+    <compiler meshdir="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes" balanceinertia="true" discardvisual="false" />
+  </mujoco>
+
+
+
+
+ <link name="world"/>
+ <joint name="floating_base" type="floating">
+     <origin rpy="0 0 0" xyz="0 0 0"/>
+     <parent link="world"/>
+     <child link="base_link"/>
+ </joint>
+
+
+
+
+
+
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-4.6363E-07 -0.0013201 -0.021013"
+        rpy="0 0 0" />
+      <mass
+        value="2.793" />
+      <inertia
+        ixx="0.039104"
+        ixy="-2.6803E-07"
+        ixz="-1.43E-07"
+        iyy="0.015393"
+        iyz="5.1347E-06"
+        izz="0.026788" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="left_left_small_leg">
+    <inertial>
+      <origin
+        xyz="-3.1799E-08 -0.024068 0.00079523"
+        rpy="0 0 0" />
+      <mass
+        value="0.10778" />
+      <inertia
+        ixx="0.00013959"
+        ixy="-6.6539E-11"
+        ixz="-8.4143E-12"
+        iyy="2.6543E-05"
+        iyz="8.3811E-06"
+        izz="0.00016057" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_left_small_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_left_small_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_left_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1025 0.05 0"
+      rpy="-1.5708 0.99356 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_left_small_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_left_big_leg">
+    <inertial>
+      <origin
+        xyz="1.41705397416203E-12 -0.138445293214752 0.00620447469588181"
+        rpy="0 0 0" />
+      <mass
+        value="0.254951211698189" />
+      <inertia
+        ixx="0.000855215791592367"
+        ixy="-2.80335379475999E-15"
+        ixz="1.03094074076215E-15"
+        iyy="0.0001447335884076"
+        iyz="-6.66386340023988E-05"
+        izz="0.000977357099037753" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_left_big_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_left_big_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint0"
+    type="continuous">
+    <origin
+      xyz="0 -0.09 0.0396"
+      rpy="3.1416 0 -0.22268" />
+    <parent
+      link="left_left_small_leg" />
+    <child
+      link="left_left_big_leg" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="left_wheel">
+    <inertial>
+      <origin
+        xyz="-0.020163 7.3609E-05 3.049E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.23078" />
+      <inertia
+        ixx="0.00024842"
+        ixy="-2.4908E-07"
+        ixz="-1.0317E-07"
+        iyy="0.00014612"
+        iyz="2.1373E-07"
+        izz="0.00014569" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.18 0.001"
+      rpy="0.3927 1.5708 0" />
+    <parent
+      link="left_left_big_leg" />
+    <child
+      link="left_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="left_right_small_leg">
+    <inertial>
+      <origin
+        xyz="-3.42170727030133E-08 -0.0240683837652682 0.000795233169621878"
+        rpy="0 0 0" />
+      <mass
+        value="0.107780249103096" />
+      <inertia
+        ixx="0.000139585673881743"
+        ixy="-7.78075479632661E-11"
+        ixz="-9.41093218012888E-12"
+        iyy="2.6543409994933E-05"
+        iyz="8.38110598191288E-06"
+        izz="0.000160570374710631" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_right_small_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_right_small_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_right_joint"
+    type="revolute">
+    <origin
+      xyz="-0.1025 -0.05 0"
+      rpy="-1.5708 -0.99356 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_right_small_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_right_big_leg">
+    <inertial>
+      <origin
+        xyz="-4.85722573273506E-17 -0.088759654738497 0.0248519530085939"
+        rpy="0 0 0" />
+      <mass
+        value="0.110969681386475" />
+      <inertia
+        ixx="0.000395694399097457"
+        ixy="-2.13452302708084E-19"
+        ixz="6.09863722023096E-20"
+        iyy="4.02840224644602E-05"
+        iyz="9.29190515231874E-05"
+        izz="0.000375798862551648" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_right_big_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_right_big_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint1"
+    type="continuous">
+    <origin
+      xyz="0 -0.09 0.0116"
+      rpy="0 0 -2.9189" />
+    <parent
+      link="left_right_small_leg" />
+    <child
+      link="left_right_big_leg" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_left_small_leg">
+    <inertial>
+      <origin
+        xyz="-3.1799E-08 -0.024068 0.00079523"
+        rpy="0 0 0" />
+      <mass
+        value="0.10778" />
+      <inertia
+        ixx="0.00013959"
+        ixy="-6.6539E-11"
+        ixz="-8.4143E-12"
+        iyy="2.6543E-05"
+        iyz="8.3811E-06"
+        izz="0.00016057" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_left_small_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.77647 0.75686 0.73725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_left_small_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_left_joint"
+    type="revolute">
+    <origin
+      xyz="0.1025 -0.05 0"
+      rpy="-1.5708 0.99356 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_left_small_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_left_big_leg">
+    <inertial>
+      <origin
+        xyz="1.4169915241169E-12 -0.138445293214752 0.0062044746958819"
+        rpy="0 0 0" />
+      <mass
+        value="0.25495121169819" />
+      <inertia
+        ixx="0.000855215791592364"
+        ixy="-2.80327925586063E-15"
+        ixz="1.03094074076215E-15"
+        iyy="0.000144733588407595"
+        iyz="-6.66386340023984E-05"
+        izz="0.000977357099037756" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_left_big_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_left_big_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint2"
+    type="continuous">
+    <origin
+      xyz="0 -0.09 0.0396"
+      rpy="3.1416 0 -0.22268" />
+    <parent
+      link="right_left_small_leg" />
+    <child
+      link="right_left_big_leg" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_wheel">
+    <inertial>
+      <origin
+        xyz="-0.262036975552979 3.26144826756913E-05 -7.26926116724341E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.230775518427547" />
+      <inertia
+        ixx="0.00024842377569549"
+        ixy="1.1036307388237E-07"
+        ixz="-2.45982134759789E-07"
+        iyy="0.000145705330128049"
+        iyz="-2.25773101526826E-07"
+        izz="0.000146107247243795" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.18 0.2832"
+      rpy="1.9925 -1.5708 0" />
+    <parent
+      link="right_left_big_leg" />
+    <child
+      link="right_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_right_small_leg">
+    <inertial>
+      <origin
+        xyz="-3.42170727724023E-08 -0.0240683837652682 0.00079523316962192"
+        rpy="0 0 0" />
+      <mass
+        value="0.107780249103096" />
+      <inertia
+        ixx="0.000139585673881743"
+        ixy="-7.78075479734305E-11"
+        ixz="-9.41093218266998E-12"
+        iyy="2.6543409994933E-05"
+        iyz="8.3811059819129E-06"
+        izz="0.000160570374710631" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_right_small_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_right_small_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_right_joint"
+    type="revolute">
+    <origin
+      xyz="0.1025 0.05 0"
+      rpy="-1.5708 -0.99356 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_right_small_leg" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-1.57"
+      upper="1.57"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_right_big_leg">
+    <inertial>
+      <origin
+        xyz="0 -0.0887596547384971 0.0248519530085939"
+        rpy="0 0 0" />
+      <mass
+        value="0.110969681386475" />
+      <inertia
+        ixx="0.000395694399097458"
+        ixy="-2.37169225231204E-20"
+        ixz="6.7762635780344E-21"
+        iyy="4.02840224644603E-05"
+        iyz="9.29190515231875E-05"
+        izz="0.000375798862551649" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_right_big_leg.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.776470588235294 0.756862745098039 0.737254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_right_big_leg.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint3"
+    type="continuous">
+    <origin
+      xyz="0 -0.09 0.0116"
+      rpy="0 0 -2.9189" />
+    <parent
+      link="right_right_small_leg" />
+    <child
+      link="right_right_big_leg" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="left_ball_wheel">
+    <inertial>
+      <origin
+        xyz="-0.0719628764361126 2.05666906055344E-17 -3.92865648816789E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.806825063891891" />
+      <inertia
+        ixx="0.0251135439268383"
+        ixy="2.34768435450933E-18"
+        ixz="4.33625758867943E-21"
+        iyy="0.0125762295439673"
+        iyz="-4.73966902989402E-18"
+        izz="0.0125762295439673" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_ball_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/left_ball_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_ball_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.0065 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="left_ball_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="right_ball_wheel">
+    <inertial>
+      <origin
+        xyz="-0.0719628764361126 -2.05666906055344E-17 -3.92865648816789E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.806825063891891" />
+      <inertia
+        ixx="0.0251135439268383"
+        ixy="2.34768435450933E-18"
+        ixz="4.33625758867943E-21"
+        iyy="0.0125762295439673"
+        iyz="-4.73966902989402E-18"
+        izz="0.0125762295439673" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_ball_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.298039215686275 0.298039215686275 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="/home/cherish/yuquan-note/mujoco-model/yuquan_urdf/meshes/right_ball_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_ball_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0.0065 0 0"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="right_ball_wheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+</robot>

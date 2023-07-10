@@ -1,0 +1,130 @@
+<mujoco model="myrobot">
+    <compiler angle="radian" meshdir="/home/cherish/yuquan-note/mujoco-model/meshes/" />
+    <size njmax="500" nconmax="100" />
+    <option gravity='0 0 -9.806' iterations='50' solver='Newton' timestep='0.002'/>
+    <default>
+        <geom contype="1" conaffinity="1" friction="0.6 0.3 0.3" rgba="0.5 0.6 0.7 1" margin="0.001" group="0"/>
+
+        <light castshadow="false" diffuse="1 1 1"/>
+        <motor ctrlrange="-33.5 33.5" ctrllimited="true"/>
+        <joint damping="0.01" armature="0.01"/>
+
+    </default>
+
+    <asset>
+        <mesh name="base_link" file="base_link.STL" />
+        <mesh name="leg1_Link" file="leg1_Link.STL" />
+        <mesh name="shank1_Link" file="shank1_Link.STL" />
+        <mesh name="wheel1_Link" file="wheel1_Link.STL" />
+        <mesh name="leg2_Link" file="leg2_Link.STL" />
+        <mesh name="shank2_Link" file="shank2_Link.STL" />
+        <mesh name="leg3_Link" file="leg3_Link.STL" />
+        <mesh name="shank3_Link" file="shank3_Link.STL" />
+        <mesh name="wheel2_Link" file="wheel2_Link.STL" />
+        <mesh name="leg4_Link" file="leg4_Link.STL" />
+        <mesh name="shank4_Link" file="shank4_Link.STL" />
+        <mesh name="wheel3_Link" file="wheel3_Link.STL" />
+        <mesh name="wheel4_Link" file="wheel4_Link.STL" />
+        <material name="floorplane" reflectance="0.5" texrepeat="1 1" texture="texplane" texuniform="true"/>
+        <texture builtin="checker" height="512" name="texplane" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" type="2d" width="512"/>
+
+    </asset>
+    <worldbody>
+
+        <!-- 灯光 -->
+        <light directional="true" ambient="0.2 0.2 0.2" diffuse="0.8 0.8 0.8" specular="0.3 0.3 0.3" castshadow="false" pos="0 0 4" dir="0 0 -1" name="light0"></light>
+
+        <!-- 添加地板，这样我们就不会凝视深渊 -->
+
+        <geom name="floor0" pos="0. 0. -0.3" size="3 3 .125" type="plane" condim="3" material="floorplane"></geom>
+
+
+        <body name="base_link" pos="0 0 0">
+            <inertial pos="-4.46808e-07 -3.0378e-06 -0.0203696" quat="0.707086 0.707127 0.000158068 0.000155919" mass="7.22272" diaginertia="0.0954744 0.0562081 0.0439546" />
+            <joint name="floating_base" type="free" />
+            <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.752941 0.752941 0.752941 1" mesh="base_link" />
+            <geom type="mesh" rgba="0.752941 0.752941 0.752941 1" mesh="base_link" />
+            <body name="leg1_Link" pos="-0.1015 0.05 0">
+                <inertial pos="-0.00179523 0.0201687 0.0131344" quat="0.476366 0.878697 0.0148221 0.0273407" mass="0.10778" diaginertia="0.000161092 0.000139586 2.60214e-05" />
+                <joint name="leg1_jonit" pos="0 0 0" axis="-1 0 0" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="leg1_Link" />
+                <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="leg1_Link" />
+                <body name="shank1_Link" pos="-0.0161 0.075418 0.049114">
+                    <inertial pos="-0.014573 -0.0843871 -0.0868742" quat="0.925825 -0.375637 0.0387115 -0.0157065" mass="0.17991" diaginertia="0.000896879 0.00081189 9.5825e-05" />
+                    <joint name="shank1_joint" pos="0 0 0" axis="1 0 0" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="shank1_Link" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="shank1_Link" />
+                    <body name="wheel1_Link" pos="0.004 -0.12542 -0.12911">
+                        <inertial pos="0.00354162 0 0" quat="0.996435 0.0843617 0 0" mass="0.410353" diaginertia="0.00104917 0.000555031 0.000555006" />
+                        <joint name="wheel1_joint" pos="0 0 0" axis="1 0 0" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="wheel1_Link" />
+                        <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="wheel1_Link" />
+                    </body>
+                </body>
+            </body>
+            <body name="leg2_Link" pos="-0.1015 -0.05 0">
+                <inertial pos="-0.00179523 -0.0201687 0.0131344" quat="0.878697 0.476367 -0.0273407 -0.0148222" mass="0.10778" diaginertia="0.000161092 0.000139586 2.60213e-05" />
+                <joint name="leg2_joint" pos="0 0 0" axis="-1 0 0" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="leg2_Link" />
+                <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="leg2_Link" />
+                <body name="shank2_Link" pos="-0.0161 -0.0754176 0.049114">
+                    <inertial pos="-0.021352 0.0618446 -0.0636673" quat="0.919235 0.372963 0.116866 0.0474165" mass="0.11097" diaginertia="0.000399813 0.000395694 1.62694e-05" />
+                    <joint name="shank2_joint" pos="0 0 0" axis="-1 0 0" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="shank2_Link" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="shank2_Link" />
+                </body>
+            </body>
+            <body name="leg3_Link" pos="0.1015 -0.05 0">
+                <inertial pos="0.00179523 -0.0201687 0.0131344" quat="0.878697 0.476366 0.0273407 0.0148221" mass="0.10778" diaginertia="0.000161092 0.000139586 2.60214e-05" />
+                <joint name="leg3_joint" pos="0 0 0" axis="1 0 0" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="leg3_Link" />
+                <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="leg3_Link" />
+                <body name="shank3_Link" pos="0.0161 -0.075418 0.049114">
+                    <inertial pos="0.014573 0.0843871 -0.0868742" quat="0.925825 0.375637 -0.0387115 -0.0157065" mass="0.17991" diaginertia="0.000896879 0.00081189 9.5825e-05" />
+                    <joint name="shank3_joint" pos="0 0 0" axis="-1 0 0" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="shank3_Link" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="shank3_Link" />
+                    <body name="wheel2_Link" pos="-0.004 0.12542 -0.12911">
+                        <inertial pos="-0.00354162 0 0" quat="0.931766 -0.363059 0 0" mass="0.410353" diaginertia="0.00104917 0.000555031 0.000555006" />
+                        <joint name="wheel2_joint" pos="0 0 0" axis="-1 0 0" />
+                        <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="wheel2_Link" />
+                        <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="wheel2_Link" />
+                    </body>
+                </body>
+            </body>
+            <body name="leg4_Link" pos="0.1015 0.05 0" quat="-3.67321e-06 1 0 0">
+                <inertial pos="0.00179523 -0.0201687 -0.0131344" quat="0.476367 0.878697 0.0148222 0.0273407" mass="0.10778" diaginertia="0.000161092 0.000139586 2.60213e-05" />
+                <joint name="leg4_joint" pos="0 0 0" axis="1 0 0" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="leg4_Link" />
+                <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="leg4_Link" />
+                <body name="shank4_Link" pos="0.0161 -0.075418 -0.049114" quat="-3.67321e-06 1 0 0">
+                    <inertial pos="0.021352 -0.0618446 -0.0636673" quat="0.919235 -0.372963 -0.116866 0.0474165" mass="0.11097" diaginertia="0.000399813 0.000395694 1.62694e-05" />
+                    <joint name="shank4_joint" pos="0 0 0" axis="1 0 0" />
+                    <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.776471 0.756863 0.737255 1" mesh="shank4_Link" />
+                    <geom type="mesh" rgba="0.776471 0.756863 0.737255 1" mesh="shank4_Link" />
+                </body>
+            </body>
+            <body name="wheel3_Link" pos="-0.068 0 0">
+                <inertial pos="0 0 0" mass="0.0632598" diaginertia="0.0024206 0.00121214 0.00121214" />
+                <joint name="wheel3_joint" pos="0 0 0" axis="0.978031 -0.14849 0.14631" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.298039 0.298039 0.298039 1" mesh="wheel3_Link" />
+                <geom type="mesh" rgba="0.298039 0.298039 0.298039 1" mesh="wheel3_Link" />
+            </body>
+            <body name="wheel4_Link" pos="0.068 0 0" quat="-3.67321e-06 1 0 0">
+                <inertial pos="0 0 0" mass="0.0632598" diaginertia="0.0024206 0.00121214 0.00121214" />
+                <joint name="wheel4_joint" pos="0 0 0" axis="0.978031 0.14849 -0.14631" />
+                <geom type="mesh" contype="0" conaffinity="0" group="1" rgba="0.298039 0.298039 0.298039 1" mesh="wheel4_Link" />
+                <geom type="mesh" rgba="0.298039 0.298039 0.298039 1" mesh="wheel4_Link" />
+            </body>
+        </body>
+    </worldbody>
+    <!-- 虚拟关节 -->
+    <equality>
+        <connect name="virtue_link1" active="true" body1="shank2_Link" body2="shank1_Link" anchor="17 -17 -17" />
+        <connect name="virtue_link2" active="true" body1="shank3_Link" body2="shank4_Link" anchor="-17 17 -17" />
+        <!-- <connect name="virtue_link3" active="true" body1="leg1_Link" body2="world" anchor="0 0 6" /> -->
+    </equality>
+
+
+
+</mujoco>
